@@ -1,0 +1,59 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls" 
+    x:Class="MusicToRun.MainPage"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot est la grille racine où tout le contenu de la page est placé-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--ContentPanel - placez tout contenu supplémentaire ici-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+        	<controls:Pivot Margin="8,8,9,8" Title="MusicToRun">
+        		<controls:PivotItem Header="Vitesse">
+        			<Grid>
+        				<TextBlock Margin="8,171,8,0" TextWrapping="Wrap" Height="119" VerticalAlignment="Top" FontSize="96" Name="TextBlockVitesse"/>
+        			</Grid>
+        		</controls:PivotItem>
+        		<controls:PivotItem Header="Lecture">
+        			<Grid>
+        				<TextBlock x:Name="TextBlockTitre" Height="64" Margin="18,24,8,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48"/>
+        				<Image x:Name="SongImage" Margin="92,144,96,264"/>
+        			</Grid>
+        		</controls:PivotItem>
+        		<controls:PivotItem Header="Musique">
+        			<Grid>
+        				<ListBox x:Name="ListMusique" Margin="8" Tap="selection_OnTap"/>
+        			</Grid>
+        		</controls:PivotItem>
+        	</controls:Pivot>
+</Grid>
+    </Grid>
+ 
+    <!--Exemple de code illustrant l'utilisation d'ApplicationBar-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Bouton 1"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Bouton 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="ÉlémentMenu 1"/>
+                <shell:ApplicationBarMenuItem Text="ÉlémentMenu 2"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+
+</phone:PhoneApplicationPage>

@@ -1,0 +1,15 @@
+C:\Users\marc\Documents\Visual Studio 2010\Projects\MusicToRun\MusicToRun\Bin\Debug\ApplicationIcon.png
+C:\Users\marc\Documents\Visual Studio 2010\Projects\MusicToRun\MusicToRun\Bin\Debug\Background.png
+C:\Users\marc\Documents\Visual Studio 2010\Projects\MusicToRun\MusicToRun\Bin\Debug\MusicToRun.dll
+C:\Users\marc\Documents\Visual Studio 2010\Projects\MusicToRun\MusicToRun\Bin\Debug\MusicToRun.pdb
+C:\Users\marc\Documents\Visual Studio 2010\Projects\MusicToRun\MusicToRun\Bin\Debug\AppManifest.xaml
+C:\Users\marc\Documents\Visual Studio 2010\Projects\MusicToRun\MusicToRun\Bin\Debug\MusicToRun.xap
+C:\Users\marc\Documents\Visual Studio 2010\Projects\MusicToRun\MusicToRun\Bin\Debug\Microsoft.Phone.Controls.dll
+C:\Users\marc\Documents\Visual Studio 2010\Projects\MusicToRun\MusicToRun\Bin\Debug\Microsoft.Phone.Controls.xml
+C:\Users\marc\Documents\Visual Studio 2010\Projects\MusicToRun\MusicToRun\obj\Debug\App.g.i.cs
+C:\Users\marc\Documents\Visual Studio 2010\Projects\MusicToRun\MusicToRun\obj\Debug\MainPage.g.i.cs
+C:\Users\marc\Documents\Visual Studio 2010\Projects\MusicToRun\MusicToRun\obj\Debug\MusicToRun.g.resources
+C:\Users\marc\Documents\Visual Studio 2010\Projects\MusicToRun\MusicToRun\obj\Debug\MusicToRun.dll
+C:\Users\marc\Documents\Visual Studio 2010\Projects\MusicToRun\MusicToRun\obj\Debug\MusicToRun.pdb
+C:\Users\marc\Documents\Visual Studio 2010\Projects\MusicToRun\MusicToRun\obj\Debug\XapCacheFile.xml
+C:\Users\marc\documents\visual studio 2010\Projects\MusicToRun\MusicToRun\obj\Debug\Category.g.i.cs
