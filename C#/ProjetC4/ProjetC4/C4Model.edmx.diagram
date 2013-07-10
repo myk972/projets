@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="04ebfddfc2f24ae2bd6f68d4e1c8107a" Name="Diagramme1" >
+        <EntityTypeShape EntityType="C4Model.Employee" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="C4Model.Center" Width="1.5" PointX="5.25" PointY="4.75" />
+        <EntityTypeShape EntityType="C4Model.Gdz" Width="1.5" PointX="3" PointY="2.875" />
+        <EntityTypeShape EntityType="C4Model.Package" Width="1.5" PointX="5.25" PointY="8.5" />
+        <EntityTypeShape EntityType="C4Model.Route" Width="1.5" PointX="7.5" PointY="9.125" />
+        <EntityTypeShape EntityType="C4Model.Stage" Width="1.5" PointX="9.75" PointY="8.875" />
+        <EntityTypeShape EntityType="C4Model.Vehicle" Width="1.5" PointX="0.75" PointY="4.5" />
+        <EntityTypeShape EntityType="C4Model.Slot" Width="1.5" PointX="3" PointY="5.5" />
+        <AssociationConnector Association="C4Model.PackageRoute" />
+        <AssociationConnector Association="C4Model.VehicleGdz" />
+        <AssociationConnector Association="C4Model.VehicleSlot" />
+        <AssociationConnector Association="C4Model.SlotCenter" />
+        <AssociationConnector Association="C4Model.VehicleCenter" />
+        <AssociationConnector Association="C4Model.SlotPackage" />
+        <AssociationConnector Association="C4Model.RouteStage" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

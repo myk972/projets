@@ -1,0 +1,9 @@
+C:\Users\Dev\documents\visual studio 2012\Projects\ProjetC4\ProjetC4\bin\Debug\ProjetC4.dll.config
+C:\Users\Dev\documents\visual studio 2012\Projects\ProjetC4\ProjetC4\bin\Debug\ProjetC4.dll
+C:\Users\Dev\documents\visual studio 2012\Projects\ProjetC4\ProjetC4\bin\Debug\ProjetC4.pdb
+C:\Users\Dev\documents\visual studio 2012\Projects\ProjetC4\ProjetC4\bin\Debug\EntityFramework.dll
+C:\Users\Dev\documents\visual studio 2012\Projects\ProjetC4\ProjetC4\bin\Debug\EntityFramework.xml
+C:\Users\Dev\documents\visual studio 2012\Projects\ProjetC4\ProjetC4\bin\Debug\fr\EntityFramework.resources.dll
+C:\Users\Dev\documents\visual studio 2012\Projects\ProjetC4\ProjetC4\obj\Debug\ProjetC4.dll
+C:\Users\Dev\documents\visual studio 2012\Projects\ProjetC4\ProjetC4\obj\Debug\ProjetC4.pdb
+C:\Users\Dev\documents\visual studio 2012\Projects\ProjetC4\ProjetC4\obj\Debug\ProjetC4.csprojResolveAssemblyReference.cache

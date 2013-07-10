@@ -1,0 +1,26 @@
+﻿<Window x:Class="ProjetWPF.NewPackage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="NewPackage" Height="500" Width="320">
+    <Grid>
+        <Label Content="Nom :" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top"/>
+        <Label Content="Expediteur :" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top"/>
+        <Label Content="Adresse de l'expediteur : " HorizontalAlignment="Left" Margin="10,136,0,0" VerticalAlignment="Top"/>
+        <Label Content="Destinataire :" HorizontalAlignment="Left" Margin="10,167,0,0" VerticalAlignment="Top"/>
+        <Label Content="Destination :" HorizontalAlignment="Left" Margin="10,198,0,0" VerticalAlignment="Top"/>
+        <Label Content="Centre de depot :" HorizontalAlignment="Left" Margin="10,229,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.141,0.41"/>
+        <Label Content="Commentaires :" HorizontalAlignment="Left" Margin="10,260,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="packageName_Input" HorizontalAlignment="Left" Height="23" Margin="172,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="senderName_Input" HorizontalAlignment="Left" Height="23" Margin="172,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="senderAddress_Input" HorizontalAlignment="Left" Height="23" Margin="172,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="receiverName_Input" HorizontalAlignment="Left" Height="23" Margin="172,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="receiverAddress_Input" HorizontalAlignment="Left" Height="23" Margin="172,198,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="actuelCenter_Input" HorizontalAlignment="Left" Height="23" Margin="172,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="comments_Input" HorizontalAlignment="Left" Height="81" Margin="172,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Annuler" HorizontalAlignment="Left" Margin="172,388,0,0" VerticalAlignment="Top" Width="75" Click="cancel_OnClick"/>
+        <Button Content="Valider" HorizontalAlignment="Left" Margin="64,388,0,0" VerticalAlignment="Top" Width="75" Click="validate_OnClick"/>
+        <Label x:Name="errorAddPackage_Label" Content="" HorizontalAlignment="Left" Margin="29,431,0,0" VerticalAlignment="Top" Width="263" Foreground="Red"/>
+        <Label Content="Creation d'un nouveau colis" HorizontalAlignment="Left" Margin="89,22,0,0" VerticalAlignment="Top" Width="178"/>
+
+    </Grid>
+</Window>

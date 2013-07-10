@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="C4ModelStoreContainer" CdmEntityContainer="C4ModelContainer">
+    <EntitySetMapping Name="ListEmployee">
+      <EntityTypeMapping TypeName="IsTypeOf(C4Model.Employee)">
+        <MappingFragment StoreEntitySet="ListEmployee">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListCenter">
+      <EntityTypeMapping TypeName="IsTypeOf(C4Model.Center)">
+        <MappingFragment StoreEntitySet="ListCenter">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Group" ColumnName="Group" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListGdz">
+      <EntityTypeMapping TypeName="IsTypeOf(C4Model.Gdz)">
+        <MappingFragment StoreEntitySet="ListGdz">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Coordinates" ColumnName="Coordinates" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListPackage">
+      <EntityTypeMapping TypeName="IsTypeOf(C4Model.Package)">
+        <MappingFragment StoreEntitySet="ListPackage">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sender" ColumnName="Sender" />
+          <ScalarProperty Name="SenderAddress" ColumnName="SenderAddress" />
+          <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+          <ScalarProperty Name="DestinationAddress" ColumnName="DestinationAddress" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListRoute">
+      <EntityTypeMapping TypeName="IsTypeOf(C4Model.Route)">
+        <MappingFragment StoreEntitySet="ListRoute">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListStage">
+      <EntityTypeMapping TypeName="IsTypeOf(C4Model.Stage)">
+        <MappingFragment StoreEntitySet="ListStage">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="DatePackageAtStage" ColumnName="DatePackageAtStage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListVehicle">
+      <EntityTypeMapping TypeName="IsTypeOf(C4Model.Vehicle)">
+        <MappingFragment StoreEntitySet="ListVehicle">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListSlot">
+      <EntityTypeMapping TypeName="IsTypeOf(C4Model.Slot)">
+        <MappingFragment StoreEntitySet="ListSlot">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="MaxCapacity" ColumnName="MaxCapacity" />
+          <ScalarProperty Name="FreeCapacity" ColumnName="FreeCapacity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PackageRoute" TypeName="C4Model.PackageRoute" StoreEntitySet="ListPackage">
+      <EndProperty Name="Route">
+        <ScalarProperty Name="ID" ColumnName="Route_ID" />
+      </EndProperty>
+      <EndProperty Name="Package">
+        <ScalarProperty Name="Code" ColumnName="Code" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="VehicleGdz" TypeName="C4Model.VehicleGdz" StoreEntitySet="ListVehicle">
+      <EndProperty Name="Gdz">
+        <ScalarProperty Name="ID" ColumnName="Gdz_ID" />
+      </EndProperty>
+      <EndProperty Name="Vehicle">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="VehicleSlot" TypeName="C4Model.VehicleSlot" StoreEntitySet="ListVehicle">
+      <EndProperty Name="Slot">
+        <ScalarProperty Name="Code" ColumnName="Slot_Code" />
+      </EndProperty>
+      <EndProperty Name="Vehicle">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SlotCenter" TypeName="C4Model.SlotCenter" StoreEntitySet="ListSlot">
+      <EndProperty Name="Center">
+        <ScalarProperty Name="Code" ColumnName="Center_Code" />
+      </EndProperty>
+      <EndProperty Name="Slot">
+        <ScalarProperty Name="Code" ColumnName="Code" />
+      </EndProperty>
+      <Condition ColumnName="Center_Code" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="VehicleCenter" TypeName="C4Model.VehicleCenter" StoreEntitySet="ListVehicle">
+      <EndProperty Name="Center">
+        <ScalarProperty Name="Code" ColumnName="Center_Code" />
+      </EndProperty>
+      <EndProperty Name="Vehicle">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SlotPackage" TypeName="C4Model.SlotPackage" StoreEntitySet="ListPackage">
+      <EndProperty Name="Slot">
+        <ScalarProperty Name="Code" ColumnName="Slot_Code" />
+      </EndProperty>
+      <EndProperty Name="Package">
+        <ScalarProperty Name="Code" ColumnName="Code" />
+      </EndProperty>
+      <Condition ColumnName="Slot_Code" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RouteStage" TypeName="C4Model.RouteStage" StoreEntitySet="ListStage">
+      <EndProperty Name="Route">
+        <ScalarProperty Name="ID" ColumnName="Route_ID" />
+      </EndProperty>
+      <EndProperty Name="Stage">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

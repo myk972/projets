@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="C4Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="C4ModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ListEmployee" EntityType="C4Model.Employee" />
+    <EntitySet Name="ListCenter" EntityType="C4Model.Center" />
+    <EntitySet Name="ListGdz" EntityType="C4Model.Gdz" />
+    <EntitySet Name="ListPackage" EntityType="C4Model.Package" />
+    <EntitySet Name="ListRoute" EntityType="C4Model.Route" />
+    <EntitySet Name="ListStage" EntityType="C4Model.Stage" />
+    <EntitySet Name="ListVehicle" EntityType="C4Model.Vehicle" />
+    <EntitySet Name="ListSlot" EntityType="C4Model.Slot" />
+    <AssociationSet Name="PackageRoute" Association="C4Model.PackageRoute">
+      <End Role="Package" EntitySet="ListPackage" />
+      <End Role="Route" EntitySet="ListRoute" />
+    </AssociationSet>
+    <AssociationSet Name="VehicleGdz" Association="C4Model.VehicleGdz">
+      <End Role="Vehicle" EntitySet="ListVehicle" />
+      <End Role="Gdz" EntitySet="ListGdz" />
+    </AssociationSet>
+    <AssociationSet Name="VehicleSlot" Association="C4Model.VehicleSlot">
+      <End Role="Vehicle" EntitySet="ListVehicle" />
+      <End Role="Slot" EntitySet="ListSlot" />
+    </AssociationSet>
+    <AssociationSet Name="SlotCenter" Association="C4Model.SlotCenter">
+      <End Role="Slot" EntitySet="ListSlot" />
+      <End Role="Center" EntitySet="ListCenter" />
+    </AssociationSet>
+    <AssociationSet Name="VehicleCenter" Association="C4Model.VehicleCenter">
+      <End Role="Vehicle" EntitySet="ListVehicle" />
+      <End Role="Center" EntitySet="ListCenter" />
+    </AssociationSet>
+    <AssociationSet Name="SlotPackage" Association="C4Model.SlotPackage">
+      <End Role="Slot" EntitySet="ListSlot" />
+      <End Role="Package" EntitySet="ListPackage" />
+    </AssociationSet>
+    <AssociationSet Name="RouteStage" Association="C4Model.RouteStage">
+      <End Role="Route" EntitySet="ListRoute" />
+      <End Role="Stage" EntitySet="ListStage" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Username" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="AccessLevel" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Center">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Type="Int32" Name="Code" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="GeographyPoint" Name="Location" Nullable="false" />
+    <Property Type="String" Name="Address" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Type" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Group" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="ListSlot" Relationship="C4Model.SlotCenter" FromRole="Center" ToRole="Slot" />
+    <NavigationProperty Name="ListVehicle" Relationship="C4Model.VehicleCenter" FromRole="Center" ToRole="Vehicle" />
+  </EntityType>
+  <EntityType Name="Gdz">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="GeographyPolygon" Name="Coordinates" Nullable="false" />
+    <NavigationProperty Name="ListVehicle" Relationship="C4Model.VehicleGdz" FromRole="Gdz" ToRole="Vehicle" />
+  </EntityType>
+  <EntityType Name="Package">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Type="Int32" Name="Code" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Sender" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="SenderAddress" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Receiver" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="DestinationAddress" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Comment" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Route" Relationship="C4Model.PackageRoute" FromRole="Package" ToRole="Route" />
+    <NavigationProperty Name="Slot" Relationship="C4Model.SlotPackage" FromRole="Package" ToRole="Slot" />
+  </EntityType>
+  <EntityType Name="Route">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Package" Relationship="C4Model.PackageRoute" FromRole="Route" ToRole="Package" />
+    <NavigationProperty Name="ListStage" Relationship="C4Model.RouteStage" FromRole="Route" ToRole="Stage" />
+  </EntityType>
+  <EntityType Name="Stage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Type" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="DateTime" Name="DatePackageAtStage" />
+    <NavigationProperty Name="Route" Relationship="C4Model.RouteStage" FromRole="Stage" ToRole="Route" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Number" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Gdz" Relationship="C4Model.VehicleGdz" FromRole="Vehicle" ToRole="Gdz" />
+    <NavigationProperty Name="Slot" Relationship="C4Model.VehicleSlot" FromRole="Vehicle" ToRole="Slot" />
+    <NavigationProperty Name="Center" Relationship="C4Model.VehicleCenter" FromRole="Vehicle" ToRole="Center" />
+  </EntityType>
+  <EntityType Name="Slot">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Type="Int32" Name="Code" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="MaxCapacity" Nullable="false" />
+    <Property Type="Int32" Name="FreeCapacity" Nullable="false" />
+    <NavigationProperty Name="Vehicle" Relationship="C4Model.VehicleSlot" FromRole="Slot" ToRole="Vehicle" />
+    <NavigationProperty Name="Center" Relationship="C4Model.SlotCenter" FromRole="Slot" ToRole="Center" />
+    <NavigationProperty Name="ListPackage" Relationship="C4Model.SlotPackage" FromRole="Slot" ToRole="Package" />
+  </EntityType>
+  <Association Name="PackageRoute">
+    <End Type="C4Model.Package" Role="Package" Multiplicity="1" />
+    <End Type="C4Model.Route" Role="Route" Multiplicity="1" />
+  </Association>
+  <Association Name="VehicleGdz">
+    <End Type="C4Model.Vehicle" Role="Vehicle" Multiplicity="*" />
+    <End Type="C4Model.Gdz" Role="Gdz" Multiplicity="1" />
+  </Association>
+  <Association Name="VehicleSlot">
+    <End Type="C4Model.Vehicle" Role="Vehicle" Multiplicity="0..1" />
+    <End Type="C4Model.Slot" Role="Slot" Multiplicity="1" />
+  </Association>
+  <Association Name="SlotCenter">
+    <End Type="C4Model.Slot" Role="Slot" Multiplicity="*" />
+    <End Type="C4Model.Center" Role="Center" Multiplicity="0..1" />
+  </Association>
+  <Association Name="VehicleCenter">
+    <End Type="C4Model.Vehicle" Role="Vehicle" Multiplicity="*" />
+    <End Type="C4Model.Center" Role="Center" Multiplicity="1" />
+  </Association>
+  <Association Name="SlotPackage">
+    <End Type="C4Model.Slot" Role="Slot" Multiplicity="0..1" />
+    <End Type="C4Model.Package" Role="Package" Multiplicity="*" />
+  </Association>
+  <Association Name="RouteStage">
+    <End Type="C4Model.Route" Role="Route" Multiplicity="1" />
+    <End Type="C4Model.Stage" Role="Stage" Multiplicity="*" />
+  </Association>
+</Schema>

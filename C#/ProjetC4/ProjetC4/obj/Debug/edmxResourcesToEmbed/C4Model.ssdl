@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="C4Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="C4ModelStoreContainer">
+    <EntitySet Name="ListEmployee" EntityType="C4Model.Store.ListEmployee" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ListCenter" EntityType="C4Model.Store.ListCenter" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ListGdz" EntityType="C4Model.Store.ListGdz" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ListPackage" EntityType="C4Model.Store.ListPackage" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ListRoute" EntityType="C4Model.Store.ListRoute" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ListStage" EntityType="C4Model.Store.ListStage" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ListVehicle" EntityType="C4Model.Store.ListVehicle" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ListSlot" EntityType="C4Model.Store.ListSlot" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="PackageRoute" Association="C4Model.Store.PackageRoute">
+      <End Role="Package" EntitySet="ListPackage" />
+      <End Role="Route" EntitySet="ListRoute" />
+    </AssociationSet>
+    <AssociationSet Name="VehicleGdz" Association="C4Model.Store.VehicleGdz">
+      <End Role="Vehicle" EntitySet="ListVehicle" />
+      <End Role="Gdz" EntitySet="ListGdz" />
+    </AssociationSet>
+    <AssociationSet Name="VehicleSlot" Association="C4Model.Store.VehicleSlot">
+      <End Role="Vehicle" EntitySet="ListVehicle" />
+      <End Role="Slot" EntitySet="ListSlot" />
+    </AssociationSet>
+    <AssociationSet Name="SlotCenter" Association="C4Model.Store.SlotCenter">
+      <End Role="Slot" EntitySet="ListSlot" />
+      <End Role="Center" EntitySet="ListCenter" />
+    </AssociationSet>
+    <AssociationSet Name="VehicleCenter" Association="C4Model.Store.VehicleCenter">
+      <End Role="Vehicle" EntitySet="ListVehicle" />
+      <End Role="Center" EntitySet="ListCenter" />
+    </AssociationSet>
+    <AssociationSet Name="SlotPackage" Association="C4Model.Store.SlotPackage">
+      <End Role="Slot" EntitySet="ListSlot" />
+      <End Role="Package" EntitySet="ListPackage" />
+    </AssociationSet>
+    <AssociationSet Name="RouteStage" Association="C4Model.Store.RouteStage">
+      <End Role="Route" EntitySet="ListRoute" />
+      <End Role="Stage" EntitySet="ListStage" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ListEmployee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AccessLevel" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ListCenter">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Location" Type="geography" Nullable="false" SRID="4326" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Group" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ListGdz">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Coordinates" Type="geography" Nullable="false" SRID="4326" />
+  </EntityType>
+  <EntityType Name="ListPackage">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Sender" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SenderAddress" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Receiver" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DestinationAddress" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Route_ID" Type="int" Nullable="false" />
+    <Property Name="Slot_Code" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="ListRoute">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ListStage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DatePackageAtStage" Type="datetime" Nullable="true" />
+    <Property Name="Route_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ListVehicle">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Number" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Gdz_ID" Type="int" Nullable="false" />
+    <Property Name="Slot_Code" Type="int" Nullable="false" />
+    <Property Name="Center_Code" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ListSlot">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaxCapacity" Type="int" Nullable="false" />
+    <Property Name="FreeCapacity" Type="int" Nullable="false" />
+    <Property Name="Center_Code" Type="int" Nullable="true" />
+  </EntityType>
+  <Association Name="PackageRoute">
+    <End Role="Package" Type="C4Model.Store.ListPackage" Multiplicity="*" />
+    <End Role="Route" Type="C4Model.Store.ListRoute" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Route">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Package">
+        <PropertyRef Name="Route_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VehicleGdz">
+    <End Role="Vehicle" Type="C4Model.Store.ListVehicle" Multiplicity="*" />
+    <End Role="Gdz" Type="C4Model.Store.ListGdz" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Gdz">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="Gdz_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VehicleSlot">
+    <End Role="Vehicle" Type="C4Model.Store.ListVehicle" Multiplicity="*" />
+    <End Role="Slot" Type="C4Model.Store.ListSlot" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Slot">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="Slot_Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SlotCenter">
+    <End Role="Slot" Type="C4Model.Store.ListSlot" Multiplicity="*" />
+    <End Role="Center" Type="C4Model.Store.ListCenter" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Center">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Slot">
+        <PropertyRef Name="Center_Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VehicleCenter">
+    <End Role="Vehicle" Type="C4Model.Store.ListVehicle" Multiplicity="*" />
+    <End Role="Center" Type="C4Model.Store.ListCenter" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Center">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="Center_Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SlotPackage">
+    <End Role="Slot" Type="C4Model.Store.ListSlot" Multiplicity="0..1" />
+    <End Role="Package" Type="C4Model.Store.ListPackage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Slot">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Package">
+        <PropertyRef Name="Slot_Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RouteStage">
+    <End Role="Route" Type="C4Model.Store.ListRoute" Multiplicity="1" />
+    <End Role="Stage" Type="C4Model.Store.ListStage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Route">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Stage">
+        <PropertyRef Name="Route_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
