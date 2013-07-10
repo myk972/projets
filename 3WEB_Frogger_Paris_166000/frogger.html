@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>3WEB_Frogger_Campus_IdBooster</title>
+    <script type="text/javascript" src="scripts/Frog.js"></script>
+    <script type="text/javascript" src="scripts/Game.js"></script>
+    <script type="text/javascript" src="scripts/Car.js"></script>
+    <script type="text/javascript" src="scripts/Platform.js"></script>
+    <script type="text/javascript" src="scripts/WaterLily.js"></script>
+</head>
+<body onload="drawGame()">
+<svg x="0" y="0" width="650" height="450" id="svg1"
+     sxmlns="http://www.w3.org/2000/svg" version="1.1">
+    <rect x="0" y="0" width="650" height="42" fill="green" id="top_part"></rect>
+    <rect x="0" y="42" width="650" height="170" fill="blue" id="river"></rect>
+    <rect x="0" y="212" width="650" height="34" fill="purple" id="safeZone"></rect>
+    <rect x="0" y="246" width="650" height="170" id="road"></rect>
+    <rect x="0" y="416" width="650" height="34" fill="purple" id="start"></rect>
+    <svg x="0" y="8" width="650" height="34" id="waterlilies">
+        <svg x="6" y="0" width="49" height="34" id="waterlily">
+            <rect x="0" y="0" width="49" height="34" fill="blue"></rect>
+            <image x="0" y="0" width="49" height="34" xlink:href="images/nenuphar.jpg"></image>
+        </svg>
+    </svg>
+    <g id="cars">
+        <g id="carToDelete">
+            <svg x="600" y="382" width="45" height="30" id="car_line1">
+                <image x="0" y="0" width="45" height="30" xlink:href="images/car.png"></image>
+            </svg>
+            <svg x="50" y="348" width="45" height="30" id="car_line2">
+                <image x="0" y="0" width="45" height="30" xlink:href="images/car2.png"></image>
+            </svg>
+            <svg x="450" y="314" width="45" height="30" id="car_line3">
+                <image x="0" y="0" width="45" height="30" xlink:href="images/car.png"></image>
+            </svg>
+            <svg x="180" y="280" width="45" height="30" id="car_line4">
+                <image x="0" y="0" width="45" height="30" xlink:href="images/car2.png"></image>
+            </svg>
+            <svg x="110" y="246" width="110" height="30" id="car_line5">
+                <image x="0" y="0" width="110" height="30" xlink:href="images/truck.png"></image>
+            </svg>
+        </g>
+    </g>
+    <g id="platforms">
+        <g id="platformsToDelete">
+            <svg x="400" y="178" width="70" height="30" id="platform1">
+                <image x="0" y="0" width="70" height="30" xlink:href="images/log.png"></image>
+            </svg>
+            <svg x="305" y="144" width="100" height="30" id="platform2">
+                <image x="0" y="0" width="100" height="30" xlink:href="images/log.png"></image>
+            </svg>
+            <svg x="600" y="110" width="80" height="30" id="platform3">
+                <image x="0" y="0" width="80" height="30" xlink:href="images/log.png"></image>
+            </svg>
+            <svg x="150" y="76" width="50" height="30" id="platform4">
+                <image x="0" y="0" width="50" height="30" xlink:href="images/log.png"></image>
+            </svg>
+            <svg x="300" y="42" width="150" height="30" id="platform5">
+                <image x="0" y="0" width="150" height="30" xlink:href="images/log.png"></image>
+            </svg>
+        </g>
+    </g>
+    <g id="frogs">
+    <svg x="315" y="420" width="15" height="15" id="frog">
+    <image x="0" y="0" width="15" height="15" xlink:href="images/frogUp.gif" id="frog_img"></image>
+        </svg>
+        </g>
+    <text x="250" y="246" fill="white" style="font-size: 20px;" opacity="0" id="loose">
+        you lose 1 life
+    </text>
+    <text x="250" y="246" fill="white" style="font-size: 20px;" opacity="0" id="game_over">
+        game over
+    </text>
+    <text x="250" y="246" fill="white" style="font-size: 20px;" opacity="0" id="success">
+        you win
+    </text>
+    <text x="600" y="440" fill="white" style="font-size: 15px;" opacity="1" id="timer"></text>
+    <text x="10" y="440" fill="white" style="font-size: 15px;" opacity="1" id="life"></text>
+</svg>
+</body>
+</html>
