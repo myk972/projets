@@ -1,0 +1,10 @@
+Projet de generateur automatique de regex.
+
+Le but de ce projet est de fournir à l'utilisateur une interface ergonomique lui permettant de générer des regex sans
+connaitre leur fonctionnement.
+
+ L'utilisateur pourra definir le pattern de sa regex à l'aide d'elements tels que des check box, combo box, input etc...
+ Il doit pouvoir ajouter autant de conditions qu'il le souhaite.
+ La regex générée doit être affichée.
+ L'utilisateur pourra verifier si la regex générée à le comportement attendu en écrivant une phrase d'exemple dans un
+ champ de text fourni à cet effet.

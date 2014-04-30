@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: marc
+  Date: 04/04/2014
+  Time: 00:20
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <title>Register</title>
+    <!-- Bootstrap css -->
+    <link href="assets/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <link href="assets/bootstrap/css/main.css" rel="stylesheet"/>
+    <link href="assets/bootstrap/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'/>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="site.css"/>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/bootstrap/js/modernizr.custom.js"></script>
+</h:head>
+
+<h:body>
+
+    <div class="container">
+        <div class="row mt centered">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h1><b>Forum d'émotion</b></h1>
+                <p>Echanger, discuter et partager vos émotions...</p>
+            </div>
+        </div><!-- /row -->
+    </div><!-- /.container -->
+
+    <!-- CLIENT INFORMATION -->
+    <div id="lg">
+    <div class="container">
+    <div class="row">
+
+
+    <div class="col-lg-6 col-lg-offset-3 desc">
+    <h3>Création d'un compte</h3>
+
+
+    <h:form>
+        <div class="form-group">
+        <h:outputLabel value="username" for="username" />
+        <h:inputText id="username" class="form-control" value="#{registerController.username}" />
+        <h:message for="username" />
+        </div>
+        <div class="form-group">
+        <h:outputLabel value="password" for="password" />
+        <h:inputSecret id="password" class="form-control" value="#{registerController.password}" />
+        <h:message for="password" />
+        </div>
+        <div class="form-group">
+        <h:outputLabel value="confirmation" for="confirmation" />
+        <h:inputSecret id="confirmation" class="form-control" value="#{registerController.confirmation}" />
+        <h:message for="confirmation" />
+        </div>
+        <div class="form-group">
+        <h:outputLabel value="email" for="email" />
+        <h:inputText id="email" class="form-control" value="#{registerController.email}" />
+        <h:message for="email" />
+        </div>
+        <div class="form-group">
+        <h:commandButton class="btn btn-green btn-lg col-lg-6 col-lg-offset-3" action="#{registerController.register()}"
+                         value="submit" />
+        </div>
+    </h:form>
+
+    </div>
+
+    </div><!-- row -->
+    </div><!-- container -->
+    </div><!-- d -->
+</h:body>
+
+</html>

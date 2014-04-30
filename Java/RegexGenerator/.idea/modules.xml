@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/regexGenerator.iml" filepath="$PROJECT_DIR$/regexGenerator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/regexGenerator-griffonPluginFixes.iml" filepath="$PROJECT_DIR$/regexGenerator-griffonPluginFixes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/regexGenerator-griffonPlugins.iml" filepath="$PROJECT_DIR$/regexGenerator-griffonPlugins.iml" />
+    </modules>
+  </component>
+</project>
+

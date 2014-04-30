@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: marc
+  Date: 31/03/2014
+  Time: 20:18
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <title>Topics</title>
+    <link href="assets/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <link href="assets/bootstrap/css/main.css" rel="stylesheet"/>
+    <link href="assets/bootstrap/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'/>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="site.css"/>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/bootstrap/js/modernizr.custom.js"></script>
+
+    <style type="text/css">
+        td {
+            width: 202px;
+        }
+    </style>
+
+</h:head>
+
+<h:body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="boards.xhtml">Go to Boards</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">#{userBean.user.username} <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <h:form>
+                                    <h:commandLink action="#{logoutController.logout()}" value="logout"><span
+                                            class="glyphicon glyphicon-cog"></span></h:commandLink>
+                                </h:form>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="article">
+        <div class="container">
+
+
+            <h3>Topics</h3>
+
+            <h:dataTable value="#{topicsController.showTopics()}" var="topic">
+
+                <tr>
+                    <h:column>
+                        <h:form>
+                            <h:commandLink action="#{topicsController.goToMessages(topic)}" value="#{topic.title}"/>
+                        </h:form>
+                    </h:column>
+
+                    <h:column rendered="#{topicsController.isAtLeastModerator()}">
+                        <h:form>
+                            <h:commandLink action="#{topicsController.changeTopicLock(topic)}"
+                                           value="#{topic.isLocked() ? 'unlock' : 'lock'}"/>
+                        </h:form>
+                    </h:column>
+
+                    <h:column>
+                        <h:outputLabel value="#{topic.isLocked() ? 'locked' : ''}"/>
+                    </h:column>
+
+                    <h:column rendered="#{topicsController.isAtLeastModerator()}">
+                        <h:form>
+                            <h:commandLink action="#{topicsController.mergeTopic(topic)}" value="merge"/>
+                        </h:form>
+                    </h:column>
+
+                    <h:column rendered="#{topicsController.isAtLeastModerator()}">
+                        <h:form>
+                            <h:commandLink action="#{topicsController.editTopic(topic)}" value="move"/>
+                        </h:form>
+                    </h:column>
+                </tr>
+
+            </h:dataTable>
+
+
+        </div>
+    </div>
+
+    <br/>
+    <br/>
+    <br/>
+
+    <div class="col-lg-6 col-lg-offset-1 desc">
+
+
+        <h:form rendered="#{verificationController.userIsAuthenticated()}">
+            <h4>Create Topic :</h4>
+            <div class="form-group">
+                <h:outputLabel value="topic title" for="topicTitle" />
+                <h:inputText id="topicTitle" value="#{topicsController.newTopicTitle}"/>
+            </div>
+            <div class="form-group">
+                <h:commandButton action="#{topicsController.createNewTopic()}" value="Submit" class="btn btn-green brn-lg"/>
+            </div>
+        </h:form>
+
+    </div>
+
+</h:body>
+
+</html>

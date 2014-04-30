@@ -1,0 +1,134 @@
+/* boostrap */
+body{
+  background-color: white;
+}
+.container{
+	width: 800px
+}
+#menuToggle{
+
+  padding-top: 12px;
+}
+
+p{
+padding-top: 25px;
+
+}
+@media screen and (min-width: 768px)
+.modal-content {
+-webkit-box-shadow: none;
+box-shadow: none;
+}
+.modal-content {
+position: relative;
+background-color: #ffffff;
+border: 1px solid #999999;
+border: 1px solid rgba(0, 0, 0, 0.2);
+border-radius: 0px;
+outline: none;
+-webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+background-clip: padding-box;
+}
+
+.modal-footer {
+
+border-top: none;
+}
+
+.article{
+  margin-top: 80px;
+}
+
+.logo{
+ margin-top: 5px;
+margin-bottom: 5px;
+margin-left: 20px;
+margin-right: 20px;
+}
+
+.dropdown-menu{
+  width:260px;
+  border-radius: 0;
+}
+
+.dropdown-information{
+
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+
+
+.dropdown-menu > li > a {
+padding: 8px 20px;
+color: #16a085;
+word-wrap: break-word;
+-webkit-transition: color .1s ease-in, background .1s ease-in;
+-moz-transition: color .1s ease-in, background .1s ease-in;
+-ms-transition: color .1s ease-in, background .1s ease-in;
+-o-transition: color .1s ease-in, background .1s ease-in;
+transition: color .1s ease-in, background .1s ease-in;
+font-weight: 100;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+color: #7b7b7b;
+text-decoration: none;
+outline: 0;
+}
+
+.progress {
+height: 10px;
+margin-left: 20px;
+margin-right: 20px;
+margin-top: 15px;
+}
+
+.form-control{
+	border-radius: 0px;
+
+}
+#quizz > form > .form-group > .form-control{
+	width: 206px;
+	height: 26px;
+	margin-top: 8px;
+	margin-bottom: 45px;
+}
+label{
+	margin-bottom: 10px;
+
+}
+
+.modal-body{
+
+	padding-bottom: 0px;
+}
+
+.table {
+	color: #3d464d;
+	font-size: 14px;
+	white-space: pre;
+
+}
+.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+	border: 0px solid #dddddd;
+	border-bottom: 1px solid #dddddd;
+	vertical-align: middle;
+	padding: 12px;
+}
+
+.table-bordered {
+	border: 0px solid #dddddd;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th {
+	background-color: white;
+	vertical-align: middle;
+}
+
+.table > caption + thead > tr:first-child > th, .table > colgroup + thead > tr:first-child > th, .table > thead:first-child > tr:first-child > th, .table > caption + thead > tr:first-child > td, .table > colgroup + thead > tr:first-child > td, .table > thead:first-child > tr:first-child > td {
+	font-size: 14px;
+	font-weight: normal;
+	color: #aaa;
+}

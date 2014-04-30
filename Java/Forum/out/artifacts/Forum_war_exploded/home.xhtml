@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: marc
+  Date: 08/04/2014
+  Time: 00:32
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+
+    <title>Forum d'émotion</title>
+    <!-- Bootstrap css -->
+    <link href="assets/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <link href="assets/bootstrap/css/main.css" rel="stylesheet"/>
+    <link href="assets/bootstrap/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'/>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="site.css"/>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/bootstrap/js/modernizr.custom.js"></script>
+
+</h:head>
+
+<h:body>
+    <!-- WELCOME SECTION -->
+    <div class="container">
+        <div class="row mt centered">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h1><b>Forum d'émotion</b></h1>
+
+                <p>Echanger, discuter et partager vos émotions...</p>
+            </div>
+        </div>
+    </div>
+    <div id="lg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-lg-offset-1 desc">
+                    <h3>Vous n'êtes pas membre</h3>
+
+                    Enregistrez-vous :
+                    <h:outputLink value="register.xhtml">
+                        <h:outputText value="Enregistrement"/>
+                    </h:outputLink>
+
+                    <br/> <br/>
+                    Ou accéder au forum de discution :
+                    <h:outputLink value="#{loginController.goToForumAsAnonymous()}">
+                        <h:outputText value="Forum"/>
+                    </h:outputLink>
+                </div>
+
+                <div class="col-lg-4 col-lg-offset-1 desc">
+                    <h3>Espace membre :</h3>
+
+                    <h:form>
+                        <div class="form-group">
+                            <h:inputText id="username" value="#{loginController.username}" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <h:inputSecret id="password" value="#{loginController.password}" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+
+                            <h:commandButton action="#{loginController.login()}" value="login" class="btn btn-green brn-lg"/>
+                        </div>
+                    </h:form>
+                </div>
+
+            </div>
+        </div>
+        <br />
+        <br />
+        <div>
+            <h:outputLabel value="number of messages: " for="nbMessages" />
+            <h:outputLabel id="nbMessages" value="#{loginController.nbMessages}" />
+            <br/>
+            <h:outputLabel value="number of users: " for="nbUsers" />
+            <h:outputLabel id="nbUsers" value="#{loginController.nbUsers}" />
+        </div>
+    </div>
+
+
+</h:body>
+
+</html>

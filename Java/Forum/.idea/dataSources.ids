@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="MySQL - forum@localhost" uuid="8762e386-80db-4963-ab14-b0a4c80e48c7">
+    <database-info product="MySQL" version="5.6.15" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.26 ( Revision: ${bzr.revision-id} )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <schema name="" catalog="forum"/>
+    <table name="Board" schema="" catalog="forum" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="category" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK3D5FEC67FB5B1A9" columns="category" ref-table="Category" ref-schema="" ref-catalog="forum" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK4D3DD0FBFA38D3F" table="Topic" schema="" catalog="forum" columns="board"/>
+      <index name="title" unique="true" columns="title"/>
+      <index name="FK3D5FEC67FB5B1A9" unique="false" columns="category"/>
+    </table>
+    <table name="Category" schema="" catalog="forum" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK3D5FEC67FB5B1A9" table="Board" schema="" catalog="forum" columns="category"/>
+      <index name="name" unique="true" columns="name"/>
+    </table>
+    <table name="Message" schema="" catalog="forum" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="content" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="creator" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="topic" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK9C2397E7C19F49D1" columns="topic" ref-table="Topic" ref-schema="" ref-catalog="forum" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK9C2397E7BF368224" columns="creator" ref-table="User" ref-schema="" ref-catalog="forum" ref-columns="username" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK9C2397E7BF368224" unique="false" columns="creator"/>
+      <index name="FK9C2397E7C19F49D1" unique="false" columns="topic"/>
+    </table>
+    <table name="Topic" schema="" catalog="forum" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="isLocked" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="board" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK4D3DD0FBFA38D3F" columns="board" ref-table="Board" ref-schema="" ref-catalog="forum" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK9C2397E7C19F49D1" table="Message" schema="" catalog="forum" columns="topic"/>
+      <index name="title" unique="true" columns="title"/>
+      <index name="FK4D3DD0FBFA38D3F" unique="false" columns="board"/>
+    </table>
+    <table name="User" schema="" catalog="forum" type="TABLE">
+      <column name="role" sqlType="VARCHAR" precision="31" scale="0" nullable="false" jdbcType="12"/>
+      <column name="username" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="creationDate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="username"/>
+      <exported-key name="FK9C2397E7BF368224" table="Message" schema="" catalog="forum" columns="creator"/>
+    </table>
+  </data-source>
+</component>
